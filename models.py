@@ -9,7 +9,7 @@ class Table(Model):
 
     class Meta:
         """Настроки таблицы"""
-        
+
         database = db
 
 class User(Table):
