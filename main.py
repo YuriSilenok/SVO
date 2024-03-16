@@ -1,6 +1,5 @@
-import aiogram
-import asyncio
 import os
+import asyncio
 
 from dotenv import load_dotenv
 
@@ -18,13 +17,11 @@ dp = Dispatcher()
 
 
 async def main():
+    """Запуск основных задач бота"""
     handlers.include_routers(dp)
-    
-    try:
-        await dp.start_polling(
-            bot, 
-            allowed_updates=dp.resolve_used_update_types())
-    except Exception as _ex:
-        print(f'There is exception - {_ex}')
+    await dp.start_polling(
+        bot,
+        allowed_updates=dp.resolve_used_update_types())
+
 if __name__ == '__main__':
     asyncio.run(main())
