@@ -8,6 +8,8 @@ class Table(Model):
 что бы не прописывать вс всех наследниках, класс Meta"""
 
     class Meta:
+        """Настроки таблицы"""
+        
         database = db
 
 class User(Table):
