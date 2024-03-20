@@ -1,12 +1,13 @@
-from aiogram import F, Router
+from aiogram import Router
+from models import Specialty
 
-from aiogram.utils.keyboard import InlineKeyboardBuilder
+from aiogram.utils import InlineKeyboardBuilder
+
+
 router = Router()
-def get_specs():
+def get_specialties():
     kb=InlineKeyboardBuilder()
-    kb.button(text="Стрелок", callback_data=0)
-    kb.button(text="Минометчик", callback_data=1)
-    kb.button(text="Связист", callback_data=2)
-    kb.button(text="Инженер", callback_data=3)
+    for i in len(Specialty):
+        kb.button(text=Specialty.get_by_id(i), callback_data = 'specialty')
     kb.adjust(1)
     return kb.as_markup()
